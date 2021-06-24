@@ -13,4 +13,11 @@ Working with EntityFrameworkCore for database connection and mapping in .NET 5.
 
 **2. Remember to grab a copy of the SDK for .NET 5.0 if you don't have it installed on your machine.**
 
+[Download .NET SDK](https://dotnet.microsoft.com/download)
+
 https://dotnet.microsoft.com/download
+
+**3. To build and run the program, use the following commands in a terminal where you saved/etracted the project.**
+
+`$ dotnet build`
+`$ dotnet run`
