@@ -11,5 +11,6 @@ Clone the repository to a directory with SSH or HTTPS connection to GitHub - or 
 
 `$ git clone https://github.com/sighvaturj/testing-ef-core.git`
 
-Remember to grab a copy of the .NET SDK if you don't have it installed:
+Remember to grab a copy of the SDK for .NET 5.0 if you don't have it installed on your machine:
+
 https://dotnet.microsoft.com/download
