@@ -9,4 +9,6 @@ To setup on a local machine follow these steps.
 
 **1.** Open your favorite terminal and clone the repository to a directory with SSH or with HTTPS. Navigate to the newly created repository
 
+`$ git clone git@github.com/sighvaturj/testing-ef-core.git`
+
 `$ git clone https://github.com/sighvaturj/testing-ef-core.git`
