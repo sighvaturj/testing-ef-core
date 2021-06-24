@@ -11,6 +11,6 @@ Working with EntityFrameworkCore for database connection and mapping in .NET 5.
 
 `$ git clone https://github.com/sighvaturj/testing-ef-core.git`
 
-**2.** Remember to grab a copy of the SDK for .NET 5.0 if you don't have it installed on your machine.
+**2. Remember to grab a copy of the SDK for .NET 5.0 if you don't have it installed on your machine.**
 
 https://dotnet.microsoft.com/download
