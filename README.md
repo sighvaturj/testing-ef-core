@@ -5,7 +5,7 @@ Exercise regarding working with EntityFrameworkCore for database connection and 
 
 ## Setup
 
-**1.** Clone the repository to a directory with SSH or with HTTPS connection to GitHub - or simply download a .Zip file.
+Clone the repository to a directory with SSH or with HTTPS connection to GitHub - or simply download a ZIP file.
 
 `$ git clone git@github.com/sighvaturj/testing-ef-core.git`
 
