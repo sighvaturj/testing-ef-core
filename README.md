@@ -26,9 +26,11 @@ Working with EntityFrameworkCore for database connection and mapping in .NET 5.
 
 **5. The main method of 'Program.cs' includes other two methods that can be run by uncommenting them.**
 
-```static void Main(string[] args)
+```
+        static void Main(string[] args)
         {
-            // QueryingCategories();
-            FilteredIncludes();
-            // QueryingProducts();
-        }```
+                // QueryingCategories();
+                FilteredIncludes();
+                // QueryingProducts();
+        }
+```
