@@ -10,3 +10,6 @@ Clone the repository to a directory with SSH or HTTPS connection to GitHub - or 
 `$ git clone git@github.com/sighvaturj/testing-ef-core.git`
 
 `$ git clone https://github.com/sighvaturj/testing-ef-core.git`
+
+Remember to grab a copy of the .NET SDK if you don't have it installed:
+https://dotnet.microsoft.com/download
