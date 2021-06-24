@@ -22,9 +22,7 @@ Working with EntityFrameworkCore for database connection and mapping in .NET 5.
 
 **4. Run the program by providing a number (i.e. '100') in the console.**
 
-```
-Enter a minimum for units in stock: 100
-```
+```Enter a minimum for units in stock: 100```
 
 **5. The main method of 'Program.cs' includes other two methods that can be run by uncommenting them.**
 
