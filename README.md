@@ -15,9 +15,20 @@ Working with EntityFrameworkCore for database connection and mapping in .NET 5.
 
 [Download .NET SDK](https://dotnet.microsoft.com/download)
 
-https://dotnet.microsoft.com/download
-
 **3. To build and run the program, use the following commands in a terminal where you saved/etracted the project.**
 
 `$ dotnet build`
 `$ dotnet run`
+
+**4. Run the program by providing a number (i.e. '100') in the console.**
+
+`$ Enter a minimum for units in stock: 100`
+
+**5. The main method of 'Program.cs' includes other two methods that can be run by uncommenting them.**
+
+```static void Main(string[] args)
+        {
+            // QueryingCategories();
+            FilteredIncludes();
+            // QueryingProducts();
+        }```
