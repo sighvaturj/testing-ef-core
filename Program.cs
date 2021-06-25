@@ -78,6 +78,7 @@ namespace WorkingWithEFCore
                 while(!decimal.TryParse(input, out price));
                 // fetch data
                 IQueryable<Product> prods = db.Products
+                    .TagWith("Products filtered by price and sorted.")
                     .Where(product => product.Cost > price)
                     .OrderByDescending(product => product.Cost);
                 foreach (Product item in prods)
