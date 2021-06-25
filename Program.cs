@@ -15,6 +15,7 @@ namespace WorkingWithEFCore
             // QueryingCategories();
             FilteredIncludes();
             // QueryingProducts();
+            // QueryingWithLike();
         }
 
         static void QueryingCategories()
@@ -83,7 +84,27 @@ namespace WorkingWithEFCore
                     .OrderByDescending(product => product.Cost);
                 foreach (Product item in prods)
                 {
-                    WriteLine("ProdID: {0}: {1} costs {2:$#,###0.00} and has {3} in stock.", item.ProductID, item.ProductName, item.Cost, item.Stock);
+                    WriteLine("ProdID: {0}: {1} costs {2:$#,###0.00} and has {3} in stock.", 
+                        item.ProductID, item.ProductName, item.Cost, item.Stock);
+                }
+            }
+        }
+
+        // EF Core supports 'Like' for pattern matching
+        static void QueryingWithLike()
+        {
+            using (var db = new Northwind())
+            {
+                var loggerFactory = db.GetService<ILoggerFactory>();
+                loggerFactory.AddProvider(new ConsoleLoggerProvider());
+                Write("Enter a part of a product name: ");
+                string input = ReadLine();
+                IQueryable<Product> prods = db.Products
+                    .Where(p => EF.Functions.Like(p.ProductName, $"%{input}%"));
+                foreach (Product item in prods)
+                {
+                    WriteLine("{0} has {1} units in stock. Discontinued? {2}", 
+                        item.ProductName, item.Stock, item.Discontinued);     
                 }
             }
         }
