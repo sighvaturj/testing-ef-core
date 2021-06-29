@@ -24,7 +24,7 @@ Working with EntityFrameworkCore for database connection and mapping in .NET 5.
 
 ```Enter a minimum for units in stock: 100```
 
-**5. The main method of 'Program.cs' includes other two methods that can be run by uncommenting them.**
+**5. The main method of 'Program.cs' includes other methods that can be run by uncommenting them.**
 
 ```
         static void Main(string[] args)
@@ -32,5 +32,6 @@ Working with EntityFrameworkCore for database connection and mapping in .NET 5.
                 // QueryingCategories();
                 FilteredIncludes();
                 // QueryingProducts();
+                // QueryingWithLike();
         }
 ```
