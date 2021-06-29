@@ -5,6 +5,7 @@ using static System.Console;
 using Packt.Shared;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace WorkingWithEFCore
 {
@@ -16,6 +17,20 @@ namespace WorkingWithEFCore
             FilteredIncludes();
             // QueryingProducts();
             // QueryingWithLike();
+            // TEST AddProduct
+            // if (AddProduct(6, "Bob's burgers", 500M))
+            // {
+            //     WriteLine("Add product succesful.");
+            // }
+            // TEST IncreaseProductPrice
+            // if (IncreaseProductPrice("Bob", 20M))
+            // {
+            //     WriteLine("Update product price succesful.");
+            // }
+            // TEST DeleteProducts
+            // int deleted = DeleteProducts("Bob");
+            // WriteLine($"{deleted} product(s) were deleted.");
+            // ListProducts();
         }
 
         static void QueryingCategories()
@@ -106,6 +121,65 @@ namespace WorkingWithEFCore
                     WriteLine("{0} has {1} units in stock. Discontinued? {2}", 
                         item.ProductName, item.Stock, item.Discontinued);     
                 }
+            }
+        }
+
+        // adding data with EF Core
+        static bool AddProduct(int categoryID, string productName, decimal? price)
+        {
+            using (var db = new Northwind())
+            {
+                var newProduct = new Product
+                {
+                    CategoryID = categoryID,
+                    ProductName = productName,
+                    Cost = price
+                };
+                // mark product as added in change tracking
+                db.Products.Add(newProduct);
+                // save tracked change to database
+                int affected = db.SaveChanges();
+                return (affected == 1);
+            }
+        }
+
+        static void ListProducts()
+        {
+            using (var db = new Northwind())
+            {
+                WriteLine("{0,-3} {1,-35} {2,8} {3,5} {4}", 
+                    "ID", "Product Name", "Cost", "Stock", "Disc.");
+                foreach (var item in db.Products.OrderByDescending(p => p.Cost))
+                {
+                    WriteLine("{0:000} {1,-35} {2,8:$#,##0.00} {3,5} {4}", 
+                        item.ProductID, item.ProductName, item.Cost, item.Stock, item.Discontinued);
+                }
+            }
+        }
+
+        // updating data with EF Core
+        static bool IncreaseProductPrice(string name, decimal amount)
+        {
+            using (var db = new Northwind())
+            {
+                // get first product whose name starts with name
+                Product updateProduct = db.Products.First(p => p.ProductName.StartsWith(name));
+                updateProduct.Cost += amount;
+                int affected = db.SaveChanges();
+                return (affected == 1);
+            }
+        }
+
+        // deleting data with EF Core
+        static int DeleteProducts(string name)
+        {
+            using (var db = new Northwind())
+            {
+                IEnumerable<Product> products = db.Products
+                    .Where(p => p.ProductName.StartsWith(name));
+                db.Products.RemoveRange(products);
+                int affected = db.SaveChanges();
+                return affected;
             }
         }
 
